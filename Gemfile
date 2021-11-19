@@ -79,3 +79,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
+
+group :test do
+  # Might be other lines here, so simply add after them
+  gem 'factory_bot_rails'
+end

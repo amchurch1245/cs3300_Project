@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   devise_for :admins, path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout'}
   root "projects#index"
-  resources :projects
+  
+  #test
+  get 'project/index'
+  
   root to: 'home#index'
+  resources :projects
+#  root to: 'home#index'
 end
 
 #admins/sign_in
