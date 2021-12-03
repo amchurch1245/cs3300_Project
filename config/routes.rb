@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   
   #test
   get 'project/index'
-  
   root to: 'home#index'
   resources :projects
 #  root to: 'home#index'
