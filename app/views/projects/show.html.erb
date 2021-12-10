@@ -12,3 +12,10 @@
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+
+<% if admin_signed_in? %> 
+    <span style="margin-left:2.5em"><%= link_to 'Edit', edit_project_path(@project) %></span>
+    <span style="margin-left:2.5em"><%= link_to 'Back', projects_path %></span>
+ <% else %>
+    <%= link_to 'Back', projects_path %>
+<% end %>

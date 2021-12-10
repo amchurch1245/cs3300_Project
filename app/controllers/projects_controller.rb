@@ -13,6 +13,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
+    authenticate_admin!
     @project = Project.new
   end
 

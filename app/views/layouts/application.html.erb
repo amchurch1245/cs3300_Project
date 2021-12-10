@@ -1,6 +1,50 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <meta name="description" content="Portfolio">
+    <meta name="Aubrey Church" content="Aubrey Church and Bootstrap"
+
+    <title>Aubrey Church Portfolio</title>
+    
+    <!-- Custom styles for this template -->
+    <link href="application.scss" rel="stylesheet">
+    <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+    </style>
+    
+    <style>
+    .bd-placeholder-img {
+   font-size: 1.125rem;
+    text-anchor: middle;
+   -webkit-user-select: none;
+    -moz-user-select: none;
+   user-select: none;
+   }
+
+   @media (min-width: 768px) {
+   .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+   }
+  } 
+
+
+  </style>
     <title>Cs3300Project</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,7 +53,45 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
-  </html>
+  <body style="background-image: url('https://cdn.wallpapersafari.com/38/24/eYm9BN.jpg'); 
+    background-color:#87CEFA; background-repeat: no-repeat; background-size: 100% 100%;
+    color: #FFFFFF;>
+  <div class="container py-4"">
+  <main>
+  <div class="container py-4">
+  <header class="pb-3 mb-4 border-bottom">
+  <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+    <span class="fs-4"><h3><font face="Arial" color="#696969">Aubrey Church</font></h3></span>
+    <span style="margin-left:2.5em"><%= link_to 'Projects', projects_path, :class => "text-white"%></span>
+    <span style="margin-left:2.5em"><%= link_to "UFOs", "http://www.johnston-m.com/", :class => "text-white"%></span>
+    <!-note: Michael, Cole, and I were in the same group for the UFO project>
+    <% if admin_signed_in? %> 
+    <div align="right"> 
+      <%= button_to 'Logout', destroy_admin_session_path, method: :delete, class: 'btn btn-outline-light' %>
+    </div>  
+    <% else %>
+     <div align="right">
+     <span style="margin-left:2.5em"><%= link_to "Sign up", new_registration_path(resource_name), :class => "text-black"%></span>
+     <span style="margin-left:2.5em"><%= link_to "Login", new_admin_session_path, :class => "text-black"%></span>
+    <% end %>
+
+  </p>
+</a>
+</header>
+
+<div class="container">
+
+<%= yield %>
+</div >
+
+<footer class="pt-3 mt-4 text-muted border-top">
+<div align="center"> 
+<span style="margin-right:2.5em;"><font face="Arial" color="#91a3b0">&copy; Aubrey Church 2021</font></span>
+</div>
+</footer>
+</div>
+</main>
+
+
+    </body>
+</html>

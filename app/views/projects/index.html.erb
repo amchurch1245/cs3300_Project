@@ -1,29 +1,41 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Projects</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div style="border:1px solid black;margin-left:auto;margin-right:auto;" class="jumbotron bg-dark text-white ">
+<h1 style="color:#696969;text-align:center;"> Completed Projects</h1>
+<br><br>
+</div >
+<div style="background-color:#87CEFA; border:1px solid black;margin-left:auto;margin-right:auto;" class="panel text-center">
+<p><h2 style="color:#696969;"> Hello, my name is Aubrey Church </h2></p>
+<p style="color:#696969;"> I am a student at UCCS, due to graduate next semester</p>
+<p style="color:#696969;"> These are some of my projects</p>
 
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.title %></td>
-        <td><%= project.description %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+</div>
+</div>
 
-<br>
 
-<%= link_to 'New Project', new_project_path %>
+<hr>
+    <div class="d-grid gap-2 col-6 mx-auto">
+     <a <button class="btn btn-primary btn-lg" <%= link_to 'View All Projects', "/projects/list" %></a>
+     <a <button class="btn btn-primary btn-lg" <%= link_to 'Create New Project', new_project_path %> </a>
+    </div>
+    <hr>
+
+    <div class= "row mx-auto">
+      <% @projects.each do |project| %>
+        <tr>
+         <div class="col-md-4">
+           <h2> <td><%= project.title %></td> </h2>
+           <hr>
+           <div class = "jumbotron">
+            </div>
+           <p><a class = "btn btn-secondary"  <%= link_to 'View details', project %> </a></p>
+           <a <button type="button" class="btn btn-info btn-sm" <%= link_to 'Edit', edit_project_path(project) %></a> |
+           <a <button type="button" class="btn btn-danger btn-sm" <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+          </div>
+         </tr>
+      <% end %>
+    </div>
+    <hr>
+
+</div>
