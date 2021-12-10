@@ -66,16 +66,15 @@ require 'simplecov'
 SimpleCov.start 'rails' do
   add_filter '/bin/'
   add_filter '/db/'
-  add_filter '/spec/' # for rspec
+  add_filter '/spec/' # for rspec 
+  add_filter '/app/helpers/'                    
+  add_filter '/app/jobs/'                       
+  add_filter '/app/mailers/'    
 end
 
 RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
-  config.include Devise::Test::ControllerHelpers, type: :view
-  add_filter '/app/channels/application_cable/' 
-  add_filter '/app/helpers/'                    
-  add_filter '/app/jobs/'                       
-  add_filter '/app/mailers/'                    
+  config.include Devise::Test::ControllerHelpers, type: :view                    
 end
 
 require 'rspec/rails'

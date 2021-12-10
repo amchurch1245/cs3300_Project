@@ -1,24 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :admin
-  resources :projects do
-    get 'list', :on => :collection
-  end
-  root to: 'projects#index'
-  
-  
-  
-  
-#  devise_for :admins #, path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout'}
-#  root "projects#index"
-#  resources :projects
-#  root to: 'projects#index'
+devise_for :admins #, path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout'}
+  root "projects#index"
+  resources :projects
+  root to: 'projects#show'
+end  
   
   #test
 #  get 'project/index'
 #  root to: 'home#index'
 #  resources :projects
 #  root to: 'home#index'
-end
+#end
 
 #admins/sign_in
 #http://localhost:3000/auth/login
