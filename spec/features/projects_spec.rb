@@ -1,12 +1,24 @@
 require 'rails_helper'
+require 'rspec/rails' 
+require 'rails/all'
 
-RSpec.feature "Projects", type: :feature do
-  pending "add some scenarios (or delete) #{__FILE__}"
+
+def new_user
+  user = FactoryBot.create(:user)
+  login_as(user) 
 end
 
-require 'rails_helper'
+def new_user
+  visit root_path
+  click_link 'Sign Up'
+  within("form") do 
+    fill_in "Email", with: "testing@test.com"
+    fill_in "Password", with: "123456"
+    fill_in "Password confirmation", with: "123456"
+    click_button "Sign up"
+  end
+end 
 
-RSpec.feature "Projects", type: :feature do
   context "Create new project" do
     before(:each) do
       visit new_project_path
@@ -59,4 +71,4 @@ RSpec.feature "Projects", type: :feature do
       expect(Project.count).to eq(0)
     end
   end
-end
+#end

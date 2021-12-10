@@ -72,6 +72,10 @@ end
 RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
+  add_filter '/app/channels/application_cable/' 
+  add_filter '/app/helpers/'                    
+  add_filter '/app/jobs/'                       
+  add_filter '/app/mailers/'                    
 end
 
 require 'rspec/rails'
