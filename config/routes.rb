@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :admins #, path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout'}
-  root "projects#index"
-  resources :projects
+  devise_for :admin
+  resources :projects do
+    get 'list', :on => :collection
+  end
   root to: 'projects#index'
+  
+  
+  
+  
+#  devise_for :admins #, path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout'}
+#  root "projects#index"
+#  resources :projects
+#  root to: 'projects#index'
   
   #test
 #  get 'project/index'
